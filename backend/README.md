@@ -94,7 +94,7 @@ Endpoints
     * Returns list of categories and success value.
     * Category values are formated as 'id' and 'type' per row.
     * Sample: curl http://127.0.0.1:5000/categories
-
+```
         {
         "categories": {
             "1": "Science",
@@ -106,12 +106,12 @@ Endpoints
         },
         "success": true
         }
-
+```
 - GET '/questions'
     * Returns list of question objects, success value, total number of questions, as well as list of available categories and current category.
     * Question results are paginated in groups of 10. Request argument 'page' allow to chose page number, starting from 1.
     * Sample: curl http://127.0.0.1:5000/questions
-
+```
         {
         "categories": {
             "1": "Science",
@@ -197,31 +197,31 @@ Endpoints
         "success": true,
         "total_questions": 22
         }
-
+```
 - POST '/questions'
     * Creates new question using the submitted data:
         question, answer, category id (from existing), difficulty.
     * Returns the success value. 
     * Sample: curl 127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"answer": "George Washington Carver", "category": "4", "difficulty": 2, "question": "Who invented Peanut Butter?"}'
-
+```
         {
         "success": true
         }
-
+```
     * Can be used to search questions by keywords in values of questions.
     * Sample: curl  127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"category": "2"}'
-
+```
         {
         "error": 404,
         "message": "Not found",
         "success": false
         }
-
+```
 - DELETE '/questions/<int:question_id>'
     * Deletes the question of the given ID if it exists. 
     * Returns success value, ID of deleted question, list of questions, total number of questions, as well as list of available categories.
     * Sample: curl  127.0.0.1:5000/questions/2 -X DELETE
-
+```
         {
         "categories": {
             "1": "Science",
@@ -307,7 +307,7 @@ Endpoints
         "success": true,
         "total_questions": 24
         }
-
+```
 
 
 
@@ -315,7 +315,7 @@ Endpoints
     * Allows to get questions based on category ID.
     * Returns success value, list of questions, total number of questions, selected category, as well as list of available categories.
     * Sample: curl  127.0.0.1:5000/categories/1/questions
-
+```
         {
         "categories": {
             "1": "Science",
@@ -359,12 +359,12 @@ Endpoints
         "success": true,
         "total_questions": 4
         }
-
+```
 - POST '/quizzes'
     * Enpoint for getting questions to lay the quiz. Expects selected category ID and previous question ID parametres and return a random question of given category, that don't match previous questions.
     * Returns success value and next unique question, if there's still left.
     * Sample: curl  127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"quiz_category": {"id": "2"},"previous_questions": [16, 17, 18]}'
-
+```
         {
         "question": {
             "answer": "Jackson Pollock",
@@ -375,7 +375,7 @@ Endpoints
         },
         "success": true
         }
-
+```
 
 ## Testing
 To run the tests, run
